@@ -254,6 +254,19 @@ datadog:
   ## ref: https://docs.datadoghq.com/getting_started/tagging/assigning_tags/?tab=containerizedenvironments#environment-variables
   checksCardinality:  # low, orchestrator or high (not set by default to avoid overriding existing DD_CHECKS_TAG_CARDINALITY configurations, the default value in the Agent is low)
 
+  # SBOM configuration
+  sbom:
+    # datadog.sbom.enabled -- Enable SBOM (Software Bill Of Materials) collection
+    enabled: false
+
+    containerImage:
+      # datadog.sbom.containerImage.enabled -- Enable SBOM collection for container images
+      enabled: false
+
+    host:
+      # datadog.sbom.host.enabled -- Enable SBOM collection for host filesystem
+      enabled: false
+
   # kubelet configuration
   kubelet:
     # datadog.kubelet.host -- Override kubelet IP

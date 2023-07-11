@@ -1,5 +1,9 @@
 # Datadog changelog
 
+# 3.33.1
+
+* Allow enabling SBOM collection for host and container images.
+
 # 3.33.0
 
 * Default `Agent` and `Cluster-Agent` to `7.46.0` version.

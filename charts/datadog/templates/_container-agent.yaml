@@ -150,6 +150,20 @@
     {{- end }}
     - name: DD_EXPVAR_PORT
       value: {{ .Values.datadog.expvarPort | quote }}
+    {{- if .Values.datadog.sbom.enabled }}
+    - name: DD_SBOM_ENABLED
+      value: "true"
+    {{- if .Values.datadog.sbom.containerImage.enabled }}
+    - name: DD_SBOM_CONTAINER_IMAGE_ENABLED
+      value: "true"
+    - name: DD_CONTAINER_IMAGE_ENABLED
+      value: "true"
+    {{- end }}
+    {{- if .Values.datadog.sbom.host.enabled }}
+    - name: DD_SBOM_HOST_ENABLED
+      value: "true"
+    {{- end }}
+    {{- end }}
     {{- include "additional-env-entries" .Values.agents.containers.agent.env | indent 4 }}
     {{- include "additional-env-dict-entries" .Values.agents.containers.agent.envDict | indent 4 }}
   volumeMounts:
